@@ -35,16 +35,20 @@ class MainActivity : AppCompatActivity() {
         txtOutputA.text = ""
         txtTimeOfDay.text.clear()
 
-        btnClearA.setOnClickListener{
+        btnClearA.setOnClickListener{//clears all text and changes colors back to normal
             txtOutputA.text = ""
             txtTimeOfDay.text.clear()
             mainlayout.setBackgroundColor(Color.WHITE)
+            txt1.setTextColor(Color.BLACK)
+            txt2.setTextColor(Color.BLACK)
+            txtTimeOfDay.setTextColor(Color.BLACK)
+            txtOutputA.setTextColor(Color.BLACK)
         }
 
-        btnSubmit.setOnClickListener {
+        btnSubmit.setOnClickListener {//Main code
             val timeOfDay =txtTimeOfDay.text.toString()
 
-            if (timeOfDay.isEmpty()) {
+            if (timeOfDay.isEmpty()) {//test if the input is empty if yes outputs error message otherwise moves on to the next if statement
              txtOutputA.text = "Error - Please use a value from the following, Morning \n Mid Morning \n Afternoon \n Afternoon Snack \n Dinner \n After Dinner/Night"
             }
            else if (timeOfDay == "Morning") {
@@ -61,8 +65,8 @@ class MainActivity : AppCompatActivity() {
             }
             else if (timeOfDay == "Afternoon Snack") {
                 txtOutputA.text = "Message with a friend or family member"
-                mainlayout.setBackgroundColor(Color.BLUE)
-                txt1.setTextColor(Color.WHITE)
+                mainlayout.setBackgroundColor(Color.BLUE)//changes the background color
+                txt1.setTextColor(Color.WHITE)//changes text color
                 txt2.setTextColor(Color.WHITE)
                 txtTimeOfDay.setTextColor(Color.WHITE)
                 txtOutputA.setTextColor(Color.WHITE)
@@ -79,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 txtOutputA.text = "Watch video's that your friends posted or shared"
                 mainlayout.setBackgroundColor(Color.TRANSPARENT)
             }
-            else {
+            else {//if nothing triggers outputs error message
                 txtOutputA.text = "Error - Please use a value from the following, Morning \n Mid Morning \n Afternoon \n Afternoon Snack \n Dinner \n After Dinner/Night"
                 mainlayout.setBackgroundColor(Color.RED)
             }
