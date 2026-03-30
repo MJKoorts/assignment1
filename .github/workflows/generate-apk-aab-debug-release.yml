@@ -85,26 +85,3 @@ jobs:
           name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - App bundle(s) AAB release generated
           path: ${{ env.main_project_module }}/build/outputs/bundle/release/
 
-name: Generated APK AAB (Clean)
-
-on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-  schedule:
-    # Every day at 1am
-    - cron: '0 1 * * *'
-
-jobs:
-  remove-old-artifacts:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    steps:
-      - name: Clean all artifacts
-        uses: c-hive/gha-remove-artifacts@v4
-        with:
-          age: '60 seconds' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
-          # Optional inputs
-          # skip-tags: true
-          # skip-recent: 5
